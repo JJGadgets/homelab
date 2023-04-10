@@ -58,21 +58,6 @@ transforms:
           }
         }
       }
-  opnsense_route:
-    type: route
-    inputs:
-      - opnsense_remap
-    route:
-      pass_action: .filter_action == "pass"
-  opnsense_geoip:
-    type: remap
-    inputs:
-      - opnsense_route.pass_action
-    source: |
-      .geoip = get_enrichment_table_record!("geoip_table",
-        {
-          "ip": .filter_source_ip
-        })
 
 sinks:
   journald:

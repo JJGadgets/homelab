@@ -27,20 +27,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    initContainers:
-      init-geoip:
-        # https://github.com/maxmind/geoipupdate/issues/202
-        image: ghcr.io/onedr0p/geoipupdate:v4.11
-        imagePullPolicy: IfNotPresent
-        env:
-          - { name: GEOIPUPDATE_EDITION_IDS, value: GeoLite2-City }
-          - { name: GEOIPUPDATE_FREQUENCY, value: "0" }
-          - { name: GEOIPUPDATE_VERBOSE, value: "true" }
-        envFrom:
-          - secretRef:
-              name: vector-aggregator-secret
-        volumeMounts:
-          - { name: geoip, mountPath: /usr/share/GeoIP }
     controller:
       replicas: 2
       strategy: RollingUpdate
