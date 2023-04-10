@@ -9,5 +9,4 @@ resources:
   - ./traefik/ks.yaml
   - ./k8s-gateway/ks.yaml
   - wildcard-certificate
-  - opnsense
   - external-svc
