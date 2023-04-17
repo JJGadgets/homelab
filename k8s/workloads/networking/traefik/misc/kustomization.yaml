@@ -7,7 +7,7 @@ resources:
   - redirect-path.yaml
   - rfc1918.yaml
   - tls-store.yaml
-  - networkpolicy.yaml
+  # - networkpolicy.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: traefik-misc
