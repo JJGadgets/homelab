@@ -5,7 +5,7 @@ resource "cloudflare_access_policy" "token" {
   application_id = cloudflare_access_application.app_casa[each.value.subdomain].id
 
   name       = "allow any service token"
-  precedence = "5"
+  precedence = "90"
   decision   = "non_identity"
 
   include {
@@ -20,7 +20,7 @@ resource "cloudflare_access_policy" "gsuite_casa" {
   application_id = cloudflare_access_application.app_casa[each.value.subdomain].id
 
   name       = "allow ${var.email_domain}"
-  precedence = "10"
+  precedence = "100"
   decision   = "allow"
 
   dynamic "include" {
