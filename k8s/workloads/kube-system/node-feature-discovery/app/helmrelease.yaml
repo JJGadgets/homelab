@@ -29,24 +29,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    master:
-      tolerations:
-        - key: "nuc"
-          operator: "Equal"
-          value: "true"
-          effect: "NoSchedule"
-    topologyUpdater:
-      tolerations:
-        - key: "nuc"
-          operator: "Equal"
-          value: "true"
-          effect: "NoSchedule"
     worker:
-      tolerations:
-        - key: "nuc"
-          operator: "Equal"
-          value: "true"
-          effect: "NoSchedule"
       config:
         core:
           sources: ["custom", "pci", "usb"]

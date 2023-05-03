@@ -16,11 +16,6 @@ spec:
         namespace: flux-system
       interval: 30m
   values:
-    tolerations:
-      - key: "nuc"
-        operator: "Equal"
-        value: "true"
-        effect: "NoSchedule"
 
     image:
       repository: ghcr.io/k8snetworkplumbingwg/multus-cni

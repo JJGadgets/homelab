@@ -30,12 +30,6 @@ spec:
         - 109
         - 65539
 
-    tolerations:
-      - key: "nuc"
-        operator: "Equal"
-        value: "true"
-        effect: "NoSchedule"
-
     affinity:
       podAntiAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:

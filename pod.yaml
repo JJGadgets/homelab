@@ -52,8 +52,3 @@ spec:
 #      persistentVolumeClaim:
 #        claimName: home-assistant-config-v1
   restartPolicy: Always
-  tolerations:
-  - key: "nuc"
-    operator: "Equal"
-    value: "true"
-    effect: "NoSchedule"

@@ -143,11 +143,6 @@ spec:
       limits:
         memory: 16Gi
         gpu.intel.com/i915: "1"
-    tolerations:
-      - key: "nuc"
-        operator: "Equal"
-        value: "true"
-        effect: "NoSchedule"
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:

@@ -56,12 +56,6 @@ spec:
             port: 5140
             protocol: UDP
 
-    tolerations:
-      - key: "nuc"
-        operator: "Equal"
-        value: "true"
-        effect: "NoSchedule"
-
     persistence:
       config:
         enabled: true
