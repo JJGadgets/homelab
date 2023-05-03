@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - ./cilium/ks.yaml
-  - ./descheduler/ks.yaml
   - ./external-secrets/ks.yaml
   - ./intel-device-plugin/ks.yaml
   - ./kube-cleanup-operator/ks.yaml
