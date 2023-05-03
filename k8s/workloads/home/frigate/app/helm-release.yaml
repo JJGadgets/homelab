@@ -143,11 +143,5 @@ spec:
       limits:
         memory: 16Gi
         gpu.intel.com/i915: "1"
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-              - key: google.feature.node.kubernetes.io/coral
-                operator: In
-                values:
-                  - "true"
+    nodeSelector:
+      google.feature.node.kubernetes.io/coral: "true"
