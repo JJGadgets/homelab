@@ -117,10 +117,10 @@ spec:
         enabled: true
         existingClaim: media-nfs-canfail
         mountPath: /media-canfail
-      media-cephfs:
-        enabled: true
-        existingClaim: media-cephfs
-        mountPath: /media-cephfs
+#      media-cephfs:
+#        enabled: true
+#        existingClaim: media-cephfs
+#        mountPath: /media-cephfs
       transcode:
         enabled: true
         type: emptyDir
