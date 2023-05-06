@@ -109,18 +109,18 @@ spec:
       config:
         enabled: true
         existingClaim: jellyfin-config-0
-      media:
-        enabled: true
-        existingClaim: media-nfs
-        mountPath: /media
-      media-canfail:
-        enabled: true
-        existingClaim: media-nfs-canfail
-        mountPath: /media-canfail
-#      media-cephfs:
+#      media:
 #        enabled: true
-#        existingClaim: media-cephfs
-#        mountPath: /media-cephfs
+#        existingClaim: media-nfs
+#        mountPath: /media
+#      media-canfail:
+#        enabled: true
+#        existingClaim: media-nfs-canfail
+#        mountPath: /media-canfail
+      media-cephfs:
+        enabled: true
+        existingClaim: media-cephfs
+        mountPath: /media-cephfs
       transcode:
         enabled: true
         type: emptyDir
