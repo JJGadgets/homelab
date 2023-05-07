@@ -1,5 +1,5 @@
 variable "cluster_name" {
-    default = "homelab-talos-0"
+    default = "homelab-talos-1"
 
 }
 variable "worker_node_count" {

@@ -1,0 +1,10 @@
+homelab-talos-0-homelab-talos-0-controlplane-0.yaml
+homelab-talos-0-homelab-talos-0-controlplane-1.yaml
+homelab-talos-0-homelab-talos-0-controlplane-2.yaml
+homelab-talos-0-homelab-talos-0-worker-0.yaml
+homelab-talos-0-homelab-talos-0-worker-1.yaml
+homelab-talos-0-homelab-talos-0-worker-2.yaml
+homelab-talos-0-homelab-talos-0-worker-3.yaml
+homelab-talos-0-homelab-talos-0-worker-4.yaml
+talosconfig
+homelab-talos-0-homelab-talos-0-worker-5.yaml
