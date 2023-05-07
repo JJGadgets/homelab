@@ -49,11 +49,11 @@ ipam:
 
 # Cilium leverages MetalLB's simplified BGP announcement system for service type: LoadBalancer
 bgpControlPlane:
-  enabled: true
+  enabled: false
 bgp:
-  enabled: true
+  enabled: false
   announce:
-    loadbalancerIP: true
+    loadbalancerIP: false
 
 hubble:
   # -- Enable Hubble (true by default).
