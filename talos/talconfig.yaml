@@ -258,13 +258,6 @@ controlPlane:
           feature-gates: MixedProtocolLBService=true,EphemeralContainers=True
       proxy:
         disabled: true
-      aescbcEncryptionSecret: ${aescbcEncryptionKey}
-      aggregatorCA:
-        crt: ${k8sAggregatorCert}
-        key: ${k8sAggregatorCertKey}
-      ca:
-        crt: ${clusterCert}
-        key: ${clusterCertKey}
       discovery:
         enabled: true
         registries:
@@ -275,16 +268,9 @@ controlPlane:
         extraArgs:
           election-timeout: "5000"
         subnet: 10.250.0.0/20
-        ca:
-          crt: ${etcdCert}
-          key: ${etcdCertKey}
       # extraManifests:
       #   - https://raw.githubusercontent.com/alex1989hu/kubelet-serving-cert-approver/main/deploy/standalone-install.yaml
       #   - https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
-      secret: ${clusterSecret}
-      serviceAccount:
-        key: ${k8sServiceAccountKey}
-      token: ${clusterToken}
     machine:
       kubelet:
         nodeIP:
@@ -297,10 +283,6 @@ controlPlane:
         disabled: false
         servers:
           - 10.250.0.1
-      ca:
-        crt: ${machineCert}
-        key: ${machineCertKey}
-      token: ${machineToken}
 worker:
   configPatches:
     - op: add
@@ -309,13 +291,6 @@ worker:
         feature-gates: GracefulNodeShutdown=true,MixedProtocolLBService=true,EphemeralContainers=true,ServerSideApply=true
         # rotate-server-certificates: "true"
   inlinePatch:
-    cluster:
-      aescbcEncryptionSecret: ${aescbcEncryptionKey}
-      ca:
-        crt: ${clusterCert}
-        key: ${clusterCertKey}
-      secret: ${clusterSecret}
-      token: ${clusterToken}
     machine:
       kubelet:
         nodeIP:
@@ -325,7 +300,3 @@ worker:
         disabled: false
         servers:
           - 10.250.0.1
-      ca:
-        crt: ${machineCert}
-        key: ${machineCertKey}
-      token: ${machineToken}
