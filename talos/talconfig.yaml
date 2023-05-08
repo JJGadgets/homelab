@@ -20,7 +20,7 @@ nodes:
       - 10.250.0.1
     networkInterfaces:
       - interface: eth0
-        mtu: 9000
+        mtu: 1500
         vip:
           ip: 10.250.2.254
         dhcp: true
@@ -46,7 +46,7 @@ nodes:
       - 10.250.0.1
     networkInterfaces:
       - interface: eth0
-        mtu: 9000
+        mtu: 1500
         dhcp: true
         vip:
           ip: 10.250.2.254
@@ -72,7 +72,7 @@ nodes:
       - 10.250.0.1
     networkInterfaces:
       - interface: eth0
-        mtu: 9000
+        mtu: 1500
         dhcp: true
         vip:
           ip: 10.250.2.254
