@@ -19,25 +19,26 @@ metadata:
   name: debug
   namespace: media
 spec:
+#  hostNetwork: true
 #  nodeSelector:
 #    kubernetes.io/hostname: homelab-talos-0-worker-5
 
   containers:
     - name: myapp
       image: ubuntu:latest
-      securityContext:
-        privileged: true
+#      securityContext:
+#        privileged: true
       args:
         - "sleep"
         - "99999999999"
-      volumeMounts:
+#      volumeMounts:
 #        - name: usb
 #          mountPath: /dev/bus/usb
 #       - name: old-media
 #         mountPath: /old-media
-       - name: media-cephfs
-         mountPath: /media-cephfs
-  volumes:
+#       - name: media-cephfs
+#         mountPath: /media-cephfs
+#  volumes:
 #    - name: usb
 #      hostPath:
 #        path: /dev/bus/usb
@@ -45,9 +46,9 @@ spec:
 #      nfs:
 #        server: 10.250.0.200
 #        path: /mnt/tank/media
-    - name: media-cephfs
-      persistentVolumeClaim:
-        claimName: media-cephfs
+#    - name: media-cephfs
+#      persistentVolumeClaim:
+#        claimName: media-cephfs
 #    - name: mount
 #      persistentVolumeClaim:
 #        claimName: home-assistant-config-v1

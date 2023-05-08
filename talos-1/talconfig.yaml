@@ -198,6 +198,9 @@ controlPlane:
       apiServer:
         disablePodSecurityPolicy: true
         admissionControl: []
+        certSANs:
+          - homelab-talos-1-controlplane.${secret_domain_internal}
+          - homelab-talos-1.${secret_domain_internal}
         extraArgs:
           feature-gates: MixedProtocolLBService=true
       controllerManager:
@@ -225,7 +228,7 @@ controlPlane:
             - 10.250.0.0/20
         extraArgs:
           feature-gates: MixedProtocolLBService=true
-          # rotate-server-certificates: "true"
+          rotate-server-certificates: "true"
       time:
         disabled: false
         servers:
