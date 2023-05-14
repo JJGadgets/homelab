@@ -39,7 +39,7 @@ spec:
           http:
             port: &web-port 11080
     podAnnotations:
-      k8s.v1.cni.cncf.io/networks: scrypted-wifi-static,scrypted-cams-static
+      k8s.v1.cni.cncf.io/networks: scrypted-wifi-static
     ingress:
       main:
         enabled: true
