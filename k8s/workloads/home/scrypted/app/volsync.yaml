@@ -14,6 +14,9 @@ spec:
     creationPolicy: Owner
     template:
       engineVersion: v2
+      metadata:
+        annotations:
+          replicator.v1.mittwald.de/replicate-to: 'volsync'
       data:
         RESTIC_REPOSITORY: '{{ .REPOSITORY_TEMPLATE }}/scrypted'
         RESTIC_PASSWORD: '{{ .RESTIC_PASSWORD }}'
@@ -39,7 +42,7 @@ spec:
     repository: scrypted-restic-secret
     cacheCapacity: 2Gi
     volumeSnapshotClassName: csi-ceph-blockpool
-    storageClassName: ceph-block
+    storageClassName: ceph-block-ec
     moverSecurityContext:
       runAsUser: 568
       runAsGroup: 568
