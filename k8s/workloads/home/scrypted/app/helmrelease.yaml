@@ -38,8 +38,6 @@ spec:
         ports:
           http:
             port: &web-port 11080
-          # cloud:
-          #   port: &cloud-port 443
     podAnnotations:
       k8s.v1.cni.cncf.io/networks: scrypted-wifi-static
     ingress:
@@ -56,21 +54,6 @@ spec:
         tls:
           - hosts:
               - *host
-      # cloud:
-      #   enabled: true
-      #   ingressClassName: nginx
-      #   annotations:1
-      #     external-dns.alpha.kubernetes.io/target: ingress.devbu.io
-      #   hosts:
-      #     - host: &cloud-host "{{ .Release.Name }}-cloud.devbu.io"slu
-      #       paths:
-      #         - path: /
-      #           pathType: Prefix
-      #           service:
-      #             port: *cloud-port
-      #   tls:
-      #     - hosts:
-      #         - *cloud-host
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 568
