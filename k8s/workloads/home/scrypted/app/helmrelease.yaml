@@ -78,6 +78,10 @@ spec:
       fsGroupChangePolicy: OnRootMismatch
       supplementalGroups: [44, 109, 10000]
     persistence:
+      recordings:
+        enabled: true
+        mountPath: /recordings
+        existingClaim: scrypted-nvr-recordings-cephfs
       cache:
         enabled: true
         mountPath: /.npm
