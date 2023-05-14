@@ -40,6 +40,8 @@ spec:
             port: &web-port 11080
           # cloud:
           #   port: &cloud-port 443
+    podAnnotations:
+      k8s.v1.cni.cncf.io/networks: scrypted-wifi-static
     ingress:
       main:
         enabled: true
