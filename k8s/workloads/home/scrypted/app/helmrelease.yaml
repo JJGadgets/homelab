@@ -65,9 +65,13 @@ spec:
         enabled: true
         mountPath: /recordings
         existingClaim: scrypted-nvr-recordings-cephfs
-      cache:
+      cache-npm:
         enabled: true
         mountPath: /.npm
+        type: emptyDir
+      cache:
+        enabled: true
+        mountPath: /.cache
         type: emptyDir
     volumeClaimTemplates:
       - name: config
