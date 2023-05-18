@@ -1,5 +1,9 @@
 receivers:
   - name: "null"
+  - name: heartbeat
+    webhook_configs:
+      - url: "https://sm.hetrixtools.net/hb/?s=${SECRET_HETRIX_KEY}"
+        send_resolved: true
   - name: "pushover"
     pushover_configs:
       - html: true
