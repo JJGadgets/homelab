@@ -11,12 +11,13 @@ spec:
     remediation:
       retries: 300
   upgrade:
+    crds: CreateReplace
     remediation:
       retries: 300
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: 45.28.1
+      version: 45.28.0
       sourceRef:
         kind: HelmRepository
         name: prometheus-community-charts
@@ -34,22 +35,6 @@ spec:
           - name: 'discord'
             slack_configs:
               - url: "${SECRET_ALERT_MANAGER_DISCORD_WEBHOOK}"
-                send_resolved: true
-                title: |-
-                  [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ if ne .CommonAnnotations.summary ""}}{{ .CommonAnnotations.summary }} {{ else if ne .CommonAnnotations.message ""}}{{ .CommonAnnotations.message }} {{ else if ne .CommonAnnotations.description ""}}{{ .CommonAnnotations.description }} {{ else }}{{ .CommonLabels.alertname }}{{ end }}
-                text: >-
-                  {{ range .Alerts -}}
-                    *Alert:* {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
-
-                  {{ if ne .Annotations.summary ""}}*Summary:* {{ .Annotations.summary }} {{ else if ne .Annotations.message ""}}*Message:* {{ .Annotations.message }} {{ else if ne .Annotations.description ""}}*Description:* {{ .Annotations.description }}{{ end }}
-
-                  *Details:*
-                    {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
-                    {{ end }}
-                  {{ end }}
-          - name: 'discord-ceph'
-            slack_configs:
-              - url: "${SECRET_ALERT_MANAGER_DISCORD_CEPH_WEBHOOK}"
                 send_resolved: true
                 title: |-
                   [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ if ne .CommonAnnotations.summary ""}}{{ .CommonAnnotations.summary }} {{ else if ne .CommonAnnotations.message ""}}{{ .CommonAnnotations.message }} {{ else if ne .CommonAnnotations.description ""}}{{ .CommonAnnotations.description }} {{ else }}{{ .CommonLabels.alertname }}{{ end }}
@@ -83,10 +68,7 @@ spec:
               match_re:
                 severity: critical
               continue: true
-            - receiver: "discord-ceph"
-              match_re:
-                ceph: ceph
-              continue: true
+
         inhibit_rules:
           - source_match:
               severity: "critical"
