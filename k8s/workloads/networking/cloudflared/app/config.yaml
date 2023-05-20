@@ -10,17 +10,17 @@ ingress:
   - hostname: "*.${SECRET_DOMAIN_CASA}"
     service: https://traefik.networking
     originRequest:
-      noTLSVerify: true
+      originServerName: "ingress.${SECRET_DOMAIN_CASA}"
   - hostname: "*.${SECRET_DOMAIN}"
     service: https://traefik.networking
     originRequest:
-      noTLSVerify: true
+      originServerName: "ingress.${SECRET_DOMAIN}"
   - hostname: "*.${SECRET_DOMAIN_CASA}"
     service: https://cilium-ingress.kube-system
     originRequest:
-      noTLSVerify: true
+      originServerName: "ingress.${SECRET_DOMAIN_CASA}"
   - hostname: "*.${SECRET_DOMAIN}"
     service: https://cilium-ingress.kube-system
     originRequest:
-      noTLSVerify: true
+      originServerName: "ingress.${SECRET_DOMAIN}"
   - service: http_status:404
